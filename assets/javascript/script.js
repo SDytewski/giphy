@@ -27,11 +27,27 @@ function getGifs(topics) {
     }).then(function(response) {
         console.log(response);
 
+        var results=response.data;
+
         for (var i = 0; i < response.data.length; i++){
            var p = $("<p>");
            p.text("Rated: " + response.data[i].rating);     
             var img = $("<img>");
-            img.attr("src",  response.data[i].images.original.url);
+          // img.attr("src",  response.data[i].images.original.url);
+            img.attr("src", results[i].images.fixed_height_still.url);
+            img.attr("data-still", results[i].images.fixed_height_still.url);
+            img.attr("data-animate", results[i].images.fixed_height.url)
+            img.attr("data-state", "still")
+            img.addClass("gif");
+
+
+
+
+
+
+
+
+
             $("#gif-holder").append(p,img);            
 
         }
@@ -82,6 +98,95 @@ $(document).on("click", ".show-btn", function(event){
 });
 
 
+// When the user clicks one of the still GIPHY images, and it animates. 
+//When the user clicks the gif again, it stops playing.
+$("#gif-holder").on("click", ".gif", function(event){
+    //use this to prevent page from reloading and losing data
+    
+    event.preventDefault();
+    // gets the current state of the clicked gif 
+    var state = $(this).attr("data-state");
+    
+    // according to the current state gifs toggle between animate and still 
+    //learned this in class on Monday, 3/4/19...refer to class video...
+    if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$(document).on("click", )
+
+  //data[i].images.original_still.url
 
 
 
@@ -113,7 +218,7 @@ $(document).on("click", ".show-btn", function(event){
   
   
   
-  
+  //data[i].images.original_still.url
   
   
   
