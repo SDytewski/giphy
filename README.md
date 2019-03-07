@@ -1,0 +1,3 @@
+This is a giphy search engine that loads a rating and a giph.  Only ten giphs are shown per topic.  When the page loads I have displayed my favorite topics like "hockey", "yoga", "comedy", etc. but you can add more topics by using the search and submit button.  In order to  have the giphs animate they need to be clicked, once clicked they will animate.  If you click them after that they will  become stills again.
+
+This app shows my use of Ajax with the Giphy API. Included in the code are JavaScript and JQuery. I also used bootstrap for mobile responsiveness. 
