@@ -4,7 +4,7 @@ function getGifs(topics) {
     var apiKey ="FUWnSr7qCig53B78fBaeTkc4NzPpq6EW"
     var searchTerm = topics;
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + searchTerm +"&limit=25&offset=0&rating=PG&lang=en"
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + searchTerm +"&limit=10&offset=0&rating=PG&lang=en"
     
     
     
