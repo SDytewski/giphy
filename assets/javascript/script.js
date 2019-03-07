@@ -7,20 +7,7 @@ function getGifs(topics) {
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + searchTerm +"&limit=25&offset=0&rating=PG&lang=en"
     
     
-    //"https://api.giphy.com/v1/gifs/search?api_key=FUWnSr7qCig53B78fBaeTkc4NzPpq6EW&tag=" + ideas
-
-
-
-    //My topics and loop
-
-//var topics = ["hockey", "guitar", "yoga", "meditation", "books, "vegan", "comedy"]
-
-//var i;
-//for (i = 0; i < topics.length; i++) { 
-  //  console.log(topics);
-//}
-//$("#hockey").on("click", function() {
-
+    
     $.ajax({
     url: queryURL,
     method: "GET"
@@ -44,10 +31,6 @@ function getGifs(topics) {
 
 
 
-
-
-
-
             $("#gif-holder").append(p,img);            
 
         }
@@ -56,11 +39,11 @@ function getGifs(topics) {
 }
 
 
-        
+var topics = ["hockey", "guitar", "yoga", "meditation", "books", "vegan", "comedy"];    
 
         function makeButtons() {
-            var topics = ["hockey", "guitar", "yoga", "meditation", "books", "vegan", "comedy"]
 
+            $("#buttons").empty();
             //loop through an array of strings
 
             // for each element in the array
@@ -74,10 +57,11 @@ function getGifs(topics) {
                     // with a data-attribute of data-title
                     btn.attr("data-title", topics[i]);
                     // add the class of btn btn-success
-                    btn.addClass("btn btn-success show-btn");
+                    btn.addClass("btn btn-success show-btn mx-2");
             
                     // append the new button the #buttons div
                     $("#buttons").append(btn);
+                    
                 }
             }
             makeButtons();
@@ -117,6 +101,17 @@ $("#gif-holder").on("click", ".gif", function(event){
     $(this).attr("data-state", "still");
   }
 })
+
+$(".submitbutton").on("click", function(event){ 
+  event.preventDefault(); 
+  var topic = $("#input").val().trim();
+  topics.push(topic);
+  console.log(topics);
+  makeButtons();
+
+
+
+});
 
 
 
