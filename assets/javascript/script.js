@@ -31,7 +31,7 @@ function getGifs(topics) {
 
 
 
-            $("#gif-holder").append(p,img);            
+            $("#gif-holder").append(img,p);            
 
         }
     });
